@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Signup({ setUser }) {
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const navigate = useNavigate();
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,21 +19,44 @@ export default function Signup({ setUser }) {
       setUser(res.data.user);
       navigate("/blog");
     } catch (err) {
-  console.error("Signup error:", err.response?.data || err.message);
-  alert("Signup failed: " + (err.response?.data?.error || "Unknown error"));
-}
+      console.error("Signup error:", err.response?.data || err.message);
+      alert("Signup failed: " + (err.response?.data?.error || "Unknown error"));
+    }
   };
 
   return (
-    <>
-    <form onSubmit={handleSubmit}>
+    <div className="container">
       <h2>Signup</h2>
-      <input name="username" placeholder="Username" onChange={handleChange} required />
-      <input name="email" placeholder="Email" onChange={handleChange} required />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-      <button type="submit">Sign Up</button>
-    </form>
-    <p>Already have an account? <Link to="/login">Login here</Link></p>
-    </>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="username"
+          type="text"
+          placeholder="Username"
+          value={form.username}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={form.password}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>
+        Already have an account? <Link to="/login">Login here</Link>
+      </p>
+    </div>
   );
 }
