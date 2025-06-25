@@ -13,7 +13,7 @@ export default function Signup({ setUser }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://backend-5-7e3n.onrender.com/api/auth/signup", form);
+      const res = await axios.post("https://backend-7v8b.onrender.com/api/auth/signup", form);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setUser(res.data.user);

@@ -9,7 +9,7 @@ export default function Blog({ user, setUser }) {
 
   const fetchPosts = async () => {
     try {
-      const res = await axios.get("https://backend-5-7e3n.onrender.com/api/posts");
+      const res = await axios.get("https://backend-7v8b.onrender.com/api/posts");
       setPosts(res.data);
     } catch (err) {
       console.error("Error fetching posts:", err);
@@ -35,12 +35,12 @@ export default function Blog({ user, setUser }) {
     const token = localStorage.getItem("token");
     try {
       if (editingPostId) {
-        await axios.put(`https://backend-5-7e3n.onrender.com/api/posts/${editingPostId}`, form, {
+        await axios.put(`https://backend-7v8b.onrender.com/api/posts/${editingPostId}`, form, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setEditingPostId(null);
       } else {
-        await axios.post("https://backend-5-7e3n.onrender.com/api/posts", form, {
+        await axios.post("https://backend-7v8b.onrender.com/api/posts", form, {
           headers: { Authorization: `Bearer ${token}` }
         });
       }
@@ -54,7 +54,7 @@ export default function Blog({ user, setUser }) {
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`https://backend-5-7e3n.onrender.com/api/posts/${id}`, {
+      await axios.delete(`https://backend-7v8b.onrender.com/api/posts/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchPosts();
@@ -80,7 +80,7 @@ export default function Blog({ user, setUser }) {
     const token = localStorage.getItem("token");
     try {
       const comment = commentForms[postId];
-      await axios.post(`https://backend-5-7e3n.onrender.com/api/posts/${postId}/comments`, comment, {
+      await axios.post(`https://backend-7v8b.onrender.com/api/posts/${postId}/comments`, comment, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCommentForms({ ...commentForms, [postId]: { name: "", text: "" } });
