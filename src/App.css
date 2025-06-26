@@ -98,3 +98,25 @@ form button:hover {
 .comments form input {
   margin-bottom: 0.5rem;
 }
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* ✅ Space between Login and Signup buttons */
+  margin-top: 20px;
+}
+
+.button-group button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: #0056b3;
+}

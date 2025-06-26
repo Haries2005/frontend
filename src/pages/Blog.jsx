@@ -97,8 +97,8 @@ export default function Blog({ user, setUser }) {
 
   return (
     <div className="container">
-      <h1>📝 My Blog</h1>
-      <p>Logged in as <strong>{user.username}</strong> <button onClick={handleLogout}>Logout</button></p>
+      <h1 className="logo">📝 MyBlog</h1>
+      <p>Welcome <strong>{user.username}</strong><br/><button onClick={handleLogout}>Logout</button></p>
 
       <form onSubmit={handleSubmit}>
         <input

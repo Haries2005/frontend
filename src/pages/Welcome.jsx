@@ -6,8 +6,11 @@ export default function Welcome() {
     <div className="container">
       <h1>Welcome to My Blog</h1>
       <p>Create and share your thoughts with the world.</p>
-      <Link to="/login"><button>Login</button></Link><br/>
-      <Link to="/signup"><button>Sign Up</button></Link>
+
+      <div className="button-group">
+        <Link to="/login"><button>Login</button></Link>
+        <Link to="/signup"><button>Sign Up</button></Link>
+      </div>
     </div>
   );
 }
