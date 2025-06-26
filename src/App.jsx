@@ -17,7 +17,6 @@ function App() {
   }, []);
 
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
@@ -27,7 +26,6 @@ function App() {
           element={user ? <Blog user={user} setUser={setUser} /> : <Navigate to="/login" />}
         />
       </Routes>
-    </Router>
   );
 }
 
